@@ -21,6 +21,12 @@ class Utils
     {
         return password_verify($pass_orign, $pass_hash);
     }
+    public static function hasEmptyParamsAlt(array $params)
+    {
+        return count(array_filter($params, function($param) {
+            return $param === null || $param === '' || !isset($param);
+        })) > 0;
+    }
     //Obtener la ip
     public static function get_ip()
     {

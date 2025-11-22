@@ -8,7 +8,7 @@ use Config\utils\CustomException as exc;
 // Operaciones relacionadas con JWT
 use Config\Jwt\Jwt;
 use App\controllers\AuthController;
-use App\controllers\GraficsController;
+use App\controllers\GraphicsController;
 use App\controllers\MenuController;
 use App\controllers\OrderController;
 
@@ -17,20 +17,25 @@ class Router
     // Define un array que contiene las rutas y su configuración
     private static $routes = [
         "GET" => [
-            "viewIngredients" =>[MenuController::class, "viewIngredients", 1],
-            "viewOrders" => [OrderController::class, "viewOrders", 1],
-            "viewOrder" => [OrderController::class, "viewOrder", 1],
-            "lastOrder" => [OrderController::class, "lastOrder", 1],
-            "bestSeller" => [GraficsController::class, "bestSeller", 1]
+            "menu/viewIngredients" =>[MenuController::class, "viewIngredients", 1],
+            "order/viewOrders" => [OrderController::class, "viewOrders", 1],
+            "order/viewOrder" => [OrderController::class, "viewOrder", 1],
+            "order/lastOrder" => [OrderController::class, "lastOrder", 1],
+            "graphics/totalSales" => [GraphicsController::class, "totalSales", 1],
+            "graphics/bestSeller" => [GraphicsController::class, "bestSeller", 1],
+            "graphics/bestClient" => [GraphicsController::class, "bestClient", 1],
+            "graphics/sales" => [GraphicsController::class, "sales", 1],
+            "graphics/avgTime" => [GraphicsController::class, "avgTime", 1],
+            
         ],
         "POST" => [
-            "signin" => [AuthController::class, "sign_in", 0],
-            "signup" => [AuthController::class, "sign_up", 0],
-            "createOrder" => [OrderController::class, "createOrder", 1],
+            "auth/signin" => [AuthController::class, "sign_in", 0],
+            "auth/signup" => [AuthController::class, "sign_up", 0],
+            "order/createOrder" => [OrderController::class, "createOrder", 1],
             
         ],
         "PUT" => [
-            "updateStatus" => [OrderController::class, 'updateStatus', 1]
+            "order/updateStatus" => [OrderController::class, 'updateStatus', 1]
         ],
         "DELETE" => [
         ]

@@ -32,7 +32,9 @@ function rute (String $url) {
     // Verifica si se encuentra 'public' y si hay un segmento siguiente después de 'public'
     if ($publicIndex !== false && isset($parts[$publicIndex + 1])) {
         // Devuelve el segmento siguiente después de 'public'
-        return $parts[$publicIndex + 1];
+        //return $parts[$publicIndex + 1];
+        $routeParts = array_slice($parts, $publicIndex + 1); // Obtiene ["auth", "signin"]
+        return implode('/', $routeParts);
     } else {
         // Si 'public' no está presente o no hay un segmento siguiente, devuelve una cadena vacía
         return "";
