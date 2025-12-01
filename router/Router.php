@@ -35,7 +35,9 @@ class Router
             
         ],
         "PUT" => [
-            "order/updateStatus" => [OrderController::class, 'updateStatus', 1]
+            "order/updateStatus" => [OrderController::class, 'updateStatus', 1],
+            // "order/updateOrder" => [OrderController::class, 'updateOrder', 1],
+            
         ],
         "DELETE" => [
         ]
