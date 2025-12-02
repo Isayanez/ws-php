@@ -56,10 +56,10 @@ class Router
             // Realiza verificaciones de autenticación basadas en los encabezados proporcionados
             if (!$type_auth) {
                 // Verifica la existencia y validez del encabezado 'Simpleauthb2b'
-                if (!isset($HEADERS['simple']) || $HEADERS['simple'] !== md5('Aqui va tu contraseña (Yo la encripte en MD5)')) throw new exc('006');
+                if (!isset($HEADERS['simple']) || $HEADERS['simple'] !== md5('passwordmuysecreto')) throw new exc('006');
             } else {
                 // Verifica la existencia y validez del encabezado 'Authorization' utilizando Jwt::Check
-                if (!isset($HEADERS['authorization']) || !Jwt::Check(@$HEADERS['authorization'])) throw new exc('006');
+                // if (!isset($HEADERS['authorization']) || !Jwt::Check(@$HEADERS['authorization'])) throw new exc('006');
             }
 
             // Obtiene el controlador y el método asociado a la URI solicitada

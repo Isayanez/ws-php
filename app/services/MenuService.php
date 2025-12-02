@@ -12,6 +12,7 @@ class MenuService{
         ];
         $res = db::query($query);
         $msg = $res->msg;
+        // var_dump($msg);
         foreach ($msg as $key => $value) {
             $query = (object)[
                 "query" => "SELECT i.idingredients, i.name, i.extra, i.cost, i.stock, i.required FROM products_ingredients pi JOIN ingredients i ON i.idingredients = pi.ingredients_idingredients WHERE pi.products_idProducts = ? ORDER BY i.name",

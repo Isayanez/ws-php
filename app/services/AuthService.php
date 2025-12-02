@@ -17,7 +17,6 @@ class AuthService
         if ($res->error) throw new excep("004");
         $msj = $res->msg;
         if(!Utils::verify($password, $msj->password)) throw new excep("005");
-
         return (object)["error"=>false, "msg"=>$msj];
     }
     public static function sign_up(String $name, String $password, String $id, String $phone)

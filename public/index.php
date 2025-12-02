@@ -1,9 +1,15 @@
 <?php
 // Incluye el archivo de carga automática de clases desde la carpeta 'vendor'
-require_once '../vendor/autoload.php';
+
+use Dotenv\Dotenv;
 
 // Importa la clase Router desde el namespaces 'Router'
 use Router\router;
+
+require_once '../vendor/autoload.php';
+
+$dotenv = Dotenv::createImmutable(__DIR__ . '/../');
+$dotenv->load();
 
 // Establece los Headers
 header("Access-Control-Allow-Origin: *");

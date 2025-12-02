@@ -53,7 +53,8 @@ class OrderService{
     }
     public static function viewOrders(){
         $query = (object)[
-            "query" => "SELECT o.idorder, o.client, o.total, o.status, o.comments FROM `order` AS O WHERE active='1' ORDER BY o.date ASC",
+            // "query" => "SELECT o.idorder, o.client, o.total, o.status, o.comments FROM `order` AS O WHERE active='1' ORDER BY o.date ASC",
+            "query" => "SELECT o.idorder, o.client, o.total, o.status, o.comments FROM `order` AS O ORDER BY o.date ASC",
             "params" => []
         ];
         return db::query($query);
@@ -123,7 +124,7 @@ class OrderService{
             "params" => [$iduser]
         ];
         $res = db::query_one($query);
-        if($res->msg->status == 1){
+        if($res->msg && $res->msg->status == 1){
             return self::viewOrder($res->msg->actual_order);
         }
         return ['error'=>false,'msg'=>null];
