@@ -11,6 +11,7 @@ use App\controllers\AuthController;
 use App\controllers\GraphicsController;
 use App\controllers\MenuController;
 use App\controllers\OrderController;
+use App\controllers\UserController;
 
 class Router
 {

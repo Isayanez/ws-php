@@ -19,16 +19,18 @@ class GraphicsModel
         $labels = ["", "", ""];
         $data = ["", "", ""];
         
-        // Si hay error, retornar el error
         if ($res->error) {
             return $res;
         }
         
         $msj = $res->msg;
         
-        // Verificar si el mensaje es un string (error)
         if (is_string($msj)) {
             throw new CustomException('004');
+        }
+        
+        if (is_null($msj)) {
+            $msj = [];
         }
         
         // Iterar sobre los resultados
