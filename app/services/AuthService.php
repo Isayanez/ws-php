@@ -24,7 +24,7 @@ class AuthService
         //Insertar un usuario
         $query = (object)[
             "query" => "INSERT INTO `users`(`idusers`, `name`, `password`, `phone`, `rol`) VALUES (?,?,?,?,?)",
-            "params" => [$id, $name, $password, $phone, "2"]
+            "params" => [$id, $name, $password, $phone, "3"]
         ];
         return db::save($query);
     }

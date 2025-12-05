@@ -26,20 +26,26 @@ class Router
             "graphics/bestClient" => [GraphicsController::class, "bestClient", 1],
             "graphics/sales" => [GraphicsController::class, "sales", 1],
             "graphics/avgTime" => [GraphicsController::class, "avgTime", 1],
-            
+
+            "user/getUsers" => [UserController::class, "getUsers", 1],
+            "user/getUser" => [UserController::class, "getUser", 1],
         ],
         "POST" => [
             "auth/signin" => [AuthController::class, "sign_in", 0],
             "auth/signup" => [AuthController::class, "sign_up", 0],
             "order/createOrder" => [OrderController::class, "createOrder", 1],
             
+            "user/createUser" => [UserController::class, "createUser", 1],
         ],
         "PUT" => [
             "order/updateStatus" => [OrderController::class, 'updateStatus', 1],
-            // "order/updateOrder" => [OrderController::class, 'updateOrder', 1],
+            "user/updateUser" => [AuthController::class, 'updateUser', 1],
+
+            "user/updateUser" => [UserController::class, "updateUser", 1],
             
         ],
         "DELETE" => [
+            "user/deleteUser" => [UserController::class, "deleteUser", 1],
         ]
     ];
 
